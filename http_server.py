@@ -7,7 +7,7 @@ from user_repository import UserRepository
 
 port = 9999
 
-class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+class DbHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == "/members":
@@ -52,6 +52,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
 
 
-httpd = HTTPServer(('localhost', port), SimpleHTTPRequestHandler)
+httpd = HTTPServer(('', port), DbHTTPRequestHandler)
 print(f'Server running on port:{port}')
 httpd.serve_forever()
