@@ -10,9 +10,9 @@ port = 9999
 class DbHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        if self.path == "/members":
+        if self.path == "/users":
             self.send_response(200)
-            self.send_header('Content-Type', 'text/html charset=utf-8')
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
             self.end_headers()
             users = UserRepository.find_all()
             user_list_str = '\n'.join(list(map(lambda u: f'<li>{str(u)}</li>', users)))
@@ -31,7 +31,7 @@ class DbHTTPRequestHandler(BaseHTTPRequestHandler):
             '''.encode('utf-8'))
 
     def do_POST(self):
-        if self.path == "/members/save":
+        if self.path == "/users/save":
             content_length = self.headers.get("Content-Length")
             body = self.rfile.read(int(content_length)).decode('utf-8')
             p_dict = {}

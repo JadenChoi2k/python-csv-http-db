@@ -19,4 +19,3 @@ class UserRepository:
     @staticmethod
     def find_all() -> list:
         return list(UserRepository.__users.values())
-
