@@ -1,9 +1,11 @@
 class User:
-    user_id:str = None
-    password:str = None
-    name:str = None
+    id: int = None
+    user_id: str = None
+    password: str = None
+    name: str = None
 
-    def __init__(self, user_id, password, name):
+    def __init__(self, id, user_id, password, name):
+        self.id = id
         self.user_id = user_id
         self.password = password
         self.name = name

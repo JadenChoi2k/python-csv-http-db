@@ -1,11 +1,10 @@
-import cgi
-import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
-
-from user import User
-from user_repository import UserRepository
+import json
+from model.user.user import User
+from repository.user_repository import UserRepository
 
 port = 9999
+
 
 class DbHTTPRequestHandler(BaseHTTPRequestHandler):
 
@@ -49,7 +48,6 @@ class DbHTTPRequestHandler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps(p_dict).encode('utf-8'))
             except Exception as e:
                 print(e)
-
 
 
 httpd = HTTPServer(('', port), DbHTTPRequestHandler)
