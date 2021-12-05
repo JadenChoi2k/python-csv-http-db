@@ -30,6 +30,7 @@ class DbHTTPRequestHandler(BaseHTTPRequestHandler):
             '''.encode('utf-8'))
 
     def do_POST(self):
+        print(self.path)
         if self.path == "/users/save":
             content_length = self.headers.get("Content-Length")
             body = self.rfile.read(int(content_length)).decode('utf-8')

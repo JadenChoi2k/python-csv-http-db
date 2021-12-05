@@ -4,8 +4,7 @@ class User:
     password: str = None
     name: str = None
 
-    def __init__(self, id, user_id, password, name):
-        self.id = id
+    def __init__(self, user_id, password, name):
         self.user_id = user_id
         self.password = password
         self.name = name
